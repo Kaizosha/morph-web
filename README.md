@@ -27,11 +27,14 @@ Generated output is ignored by Git. The site has no package manager, runtime dep
 
 ## Social preview
 
-Root metadata expects `assets/media/social/morph-social-card.png` at 1200 × 630 pixels. The build copies that file when it exists and otherwise continues without it so the source tree can be prepared before the final card is installed.
+Root metadata and the production build include
+`assets/media/social/morph-social-card.png` at 1200 × 630 pixels.
 
 ## Cloudflare deployment
 
-`wrangler.jsonc` points Cloudflare Workers at the generated Worker and static asset directory. Build first, deploy the Worker from this directory, then attach `morph.kaizosha.org` as its custom domain.
+The repository is ready for Cloudflare Workers Builds with repository root `/`,
+build command `./tools/build-site.sh`, and deploy command `npx wrangler deploy`.
+Attach `morph.kaizosha.org` as the Worker's custom domain after the first deploy.
 
 Production uses `main`. Feature branches can be used for review and preview deployments, but product websites should remain separate repositories rather than separate branches of one website repository.
 
