@@ -28,7 +28,9 @@ The homepage continues the expanded product-cell layout used by `kaizosha.org`:
 - `assets/scripts/site-motion.js` provides pointer-responsive background-grid movement while respecting reduced-motion preferences.
 - `assets/scripts/document-navigation.js` marks the current section on long documents.
 
-The shared Kaizōsha raster icon is used only for favicon, Apple touch icon, web manifest, and metadata contexts. It is not visible page branding.
+The shared SVG icon keeps its Japanese glyphs as real text; the PNG is the
+raster fallback for Apple touch, PWA, and metadata contexts. Neither is visible
+page branding.
 
 ## Content boundaries
 

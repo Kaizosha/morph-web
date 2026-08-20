@@ -35,4 +35,6 @@ Production uses `main`. Feature branches can be used for review and preview depl
 
 `assets/styles/brand.css`, `assets/styles/markdown.css`, `assets/scripts/site-motion.js`, and `assets/scripts/document-navigation.js` use the Kaizōsha site grammar. `product-continuation.css` and `product-continuation.js` are product-neutral continuation layers that can be reused by sibling product sites.
 
-The visible Kaizōsha mark is constructed from HTML and CSS. `icon.png` is reserved for favicon, Apple touch icon, manifest, and metadata use.
+The visible Kaizōsha mark is constructed from HTML and CSS. `icon.svg` keeps
+its Japanese glyphs as real text for supporting browsers; `icon.png` is the
+Apple touch, PWA, and metadata fallback.
