@@ -12,29 +12,22 @@ Morph is an iPhone- and iPad-first Safari Web Extension for previewable, reversi
 
 Open `http://127.0.0.1:5173`.
 
-## Build
-
-```sh
-./tools/build-site.sh
-```
-
-The build creates:
-
-- `dist/client/` — static files for the Cloudflare asset binding.
-- `dist/server/index.js` — the Worker entrypoint.
-
-Generated output is ignored by Git. The site has no package manager, runtime dependency, client framework, analytics, or external font request.
+The site has no package manager, runtime dependency, client framework,
+analytics, external font request, generated output, or server process.
 
 ## Social preview
 
-Root metadata and the production build include
+Root metadata references
 `assets/media/social/morph-social-card.png` at 1200 × 630 pixels.
 
-## Cloudflare deployment
+## Cloudflare Pages
 
-The repository is ready for Cloudflare Workers Builds with repository root `/`,
-build command `./tools/build-site.sh`, and deploy command `npx wrangler deploy`.
-Attach `morph.kaizosha.org` as the Worker's custom domain after the first deploy.
+The repository root is the deployable website. Connect this repository to a
+Cloudflare Pages project with framework preset `None`, production branch
+`main`, no build command, and build output directory `.`. Every push to `main`
+publishes the committed static files directly; there is no generated output or
+manual deployment command. Attach `morph.kaizosha.org` as the Pages custom
+domain.
 
 Production uses `main`. Feature branches can be used for review and preview deployments, but product websites should remain separate repositories rather than separate branches of one website repository.
 

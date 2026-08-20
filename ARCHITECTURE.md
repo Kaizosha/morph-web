@@ -2,7 +2,9 @@
 
 ## Runtime shape
 
-The website is static HTML, CSS, and JavaScript with a small Cloudflare Worker in front of the asset binding. There is no application server, client framework, package installation, cookie, form submission, or runtime API request.
+The website is static HTML, CSS, and JavaScript served directly by Cloudflare
+Pages. There is no application server, client framework, package installation,
+cookie, form submission, or runtime API request.
 
 Public routes:
 
@@ -10,7 +12,9 @@ Public routes:
 - `/privacy` — Morph app privacy notice.
 - `/404.html` — custom not-found document.
 
-The Worker canonicalizes `/index.html`, `/privacy.html`, and `/privacy/`. It accepts only `GET` and `HEAD`, attaches security and cache headers, and preserves the incoming Kaizōsha product slot on root requests such as `/?slot=bottom-left`.
+Cloudflare Pages maps HTML files to extensionless routes and uses the top-level
+`404.html` for unknown paths. `_redirects` canonicalizes `/privacy/`, while
+`_headers` supplies the security, cache, language, and no-index policies.
 
 ## Design continuation
 
@@ -19,7 +23,8 @@ The homepage continues the expanded product-cell layout used by `kaizosha.org`:
 - `assets/styles/markdown.css` provides the shared frame, grid, product cells, document pages, responsive behavior, and accessibility states.
 - `assets/styles/brand.css` constructs the visible Kaizōsha mark from HTML and CSS.
 - `assets/styles/product-continuation.css` adds a generic scrollable product-detail layer without product-specific selectors.
-- `assets/scripts/product-continuation.js` preserves the source product slot for direct static previews. The Worker performs the equivalent transformation before HTML reaches a production browser.
+- `assets/scripts/product-continuation.js` applies the incoming Kaizōsha product
+  slot during the initial document render and cleans the temporary URL state.
 - `assets/scripts/site-motion.js` provides pointer-responsive background-grid movement while respecting reduced-motion preferences.
 - `assets/scripts/document-navigation.js` marks the current section on long documents.
 
@@ -41,6 +46,9 @@ Morph is in development. The website intentionally has no download, App Store, r
 
 The marketing site itself is self-contained and the Content Security Policy blocks network connections. The app privacy notice separately explains that Morph provider requests may leave the device depending on the provider a person configures. It must not be shortened to a blanket claim that all data always stays on device.
 
-## Build and deployment
+## Cloudflare Pages hosting
 
-`tools/build-site.sh` copies the allowlisted source files to `dist/client` and the Worker to `dist/server/index.js`. The optional social card is copied only when present. `wrangler.jsonc` binds `dist/client` as `ASSETS` and runs the Worker first for redirects, slot continuation, and response headers.
+The repository root is the complete public site. Cloudflare Pages connects to
+the Git repository with framework preset `None`, production branch `main`, no
+build command, and build output directory `.`. A push to `main` publishes the
+committed static files directly, including the social card and metadata.
