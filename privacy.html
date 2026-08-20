@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f4f4ef" media="(prefers-color-scheme: light)">
+    <title>Privacy Notice — Morph</title>
+    <meta name="description" content="How Morph handles webpage context, provider requests, credentials, saved edits, and optional Source Mode access.">
+    <meta name="author" content="Kaizōsha">
+    <meta name="publisher" content="Kaizōsha">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="application-name" content="Morph">
+    <link rel="icon" type="image/png" sizes="1024x1024" href="/icon.png?v=20260820-shared-mark">
+    <link rel="apple-touch-icon" href="/icon.png?v=20260820-shared-mark">
+    <link rel="manifest" href="/site.webmanifest?v=20260820-morph">
+    <link rel="canonical" href="https://morph.kaizosha.org/privacy">
+    <meta property="og:title" content="Privacy Notice — Morph">
+    <meta property="og:description" content="How Morph handles webpage context, provider requests, credentials, saved edits, and optional Source Mode access.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://morph.kaizosha.org/privacy">
+    <meta property="og:site_name" content="Morph by Kaizōsha">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacy Notice — Morph">
+    <meta name="twitter:description" content="How Morph handles webpage context, provider requests, credentials, saved edits, and optional Source Mode access.">
+    <meta name="twitter:site" content="@KaizoshaX">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://morph.kaizosha.org/privacy",
+        "name": "Privacy Notice — Morph",
+        "description": "How Morph handles webpage context, provider requests, credentials, saved edits, and optional Source Mode access.",
+        "dateModified": "2026-08-20",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "url": "https://morph.kaizosha.org/",
+          "name": "Morph"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Kaizōsha",
+          "url": "https://kaizosha.org/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/styles/markdown.css?v=20260820-touch-handoff">
+    <script src="/assets/scripts/site-motion.js?v=20260818-dynamic-grid" defer></script>
+    <script src="/assets/scripts/document-navigation.js?v=20260814-scroll-gutter" defer></script>
+  </head>
+  <body id="top" data-page-family="document" data-page="privacy">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main class="main" id="main-content" data-file="morph-privacy.md" tabindex="-1">
+      <nav class="document-nav" aria-label="Document navigation">
+        <a class="document-back" href="/" aria-label="Back to Morph">← Back</a>
+        <span>/ Morph Privacy Notice</span>
+      </nav>
+
+      <section class="section" id="notice">
+        <header class="section-head">
+          <h1 class="section-title">Morph Privacy Notice</h1>
+        </header>
+        <div class="body-lines">
+          <p>Morph is an iPhone and iPad Safari extension from Kaizōsha. This notice describes the current privacy design of the Morph app, Safari extension, and optional Mac companion while Morph is in development. Kaizōsha's marketing website has a separate privacy policy.</p>
+          <p class="document-meta">Last updated: August 20, 2026</p>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <header class="section-head"><h2 class="section-title">PRIVACY OVERVIEW</h2></header>
+        <div class="body-lines">
+          <p>The current Morph app and extension do not include advertising, analytics, tracking, crash-report upload, cloud sync, or a Kaizōsha-operated account service. Their Apple privacy manifests declare no collected data and no tracking.</p>
+          <p>That does not mean every AI request always stays on the device. Morph sends your instruction to the provider you choose. When page context is enabled, it may also send that provider a bounded, sanitized description of the open webpage. The destination depends on whether you choose Apple Intelligence, Codex Bridge, a local model, or a cloud provider.</p>
+        </div>
+      </section>
+
+      <section class="section" id="context">
+        <header class="section-head"><h2 class="section-title">PAGE CONTEXT</h2></header>
+        <div class="body-lines">
+          <p>Morph uses page context only to help a plan provider target the change you request. You can turn page context off; when it is off, the provider receives your instruction without the page description.</p>
+          <p>The sanitized page description excludes cookies, authentication headers, session tokens, localStorage, sessionStorage, IndexedDB, Cache Storage, scripts, inline event-handler source, form values, password or payment fields, selected files, clipboard contents, query strings, hidden form metadata, other tabs, and browsing history.</p>
+          <p>Sensitive-value redaction is always enabled. Page text is treated as untrusted input in provider instructions.</p>
+        </div>
+      </section>
+
+      <section class="section" id="providers">
+        <header class="section-head"><h2 class="section-title">PROVIDER ROUTES</h2></header>
+        <div class="body-lines">
+          <div class="entry-head"><span>Apple Intelligence</span><span>When supported, enabled, and ready, Apple's Foundation Models process the request on the device. Page context stays on the device for this route.</span></div>
+          <div class="entry-head"><span>Codex Bridge</span><span>Your instruction and any enabled sanitized page context travel to the authenticated Morph companion on the trusted Mac you configure. The companion uses the Mac's existing Codex login.</span></div>
+          <div class="entry-head"><span>Local model</span><span>Your instruction and any enabled sanitized page context travel to the OpenAI-compatible private-network endpoint you configure, such as Ollama or LM Studio.</span></div>
+          <div class="entry-head"><span>Cloud provider</span><span>Your instruction and any enabled sanitized page context travel to the OpenAI-compatible HTTPS API you explicitly configure.</span></div>
+          <p>External provider processing, retention, and account terms are controlled by the provider or endpoint you choose. Morph does not silently fall through to a disabled cloud provider.</p>
+        </div>
+      </section>
+
+      <section class="section" id="credentials">
+        <header class="section-head"><h2 class="section-title">CREDENTIALS AND LOCAL STORAGE</h2></header>
+        <div class="body-lines">
+          <p>Provider tokens are stored in the shared iOS or iPadOS Keychain access group and are not placed in UserDefaults or page context. Non-secret provider settings, privacy choices, editor mode, recent activity, and saved rules use app- or extension-owned local storage.</p>
+          <p>Saved Safe and Agent rules affect only your Safari rendering. They do not modify the origin server or another visitor's copy of the website. Morph provides controls to clear activity and remove saved rules.</p>
+        </div>
+      </section>
+
+      <section class="section" id="permissions">
+        <header class="section-head"><h2 class="section-title">SAFARI WEBSITE ACCESS</h2></header>
+        <div class="body-lines">
+          <p>Safari controls whether Morph is enabled and which websites it may access. Morph cannot enable itself, inspect protected browser interface, bypass Safari's website-access grants, or inherit a ChatGPT browser login.</p>
+          <p>When granted access, Morph inspects only the active webpage needed for the requested edit. It does not inspect other tabs or browsing history.</p>
+        </div>
+      </section>
+
+      <section class="section" id="source-mode">
+        <header class="section-head"><h2 class="section-title">SOURCE MODE</h2></header>
+        <div class="body-lines">
+          <p>Source Mode is off by default, requires explicit ownership consent, and works only through Codex Bridge. It is for Git repositories you own or are authorized to modify.</p>
+          <p>The paired Mac operator creates an allowlist of repository IDs and paths. The iPhone or iPad sends only a bounded workspace ID and your source-edit instruction; it cannot supply a path. Source requests contain no webpage DOM, current URL, form data, or browser-session information.</p>
+          <p>A new Source run requires a clean Git working tree. Codex receives write access only inside the selected repository, with network access and web search disabled. Morph does not commit, push, or deploy the result. You review the local working-tree changes and perform any external action yourself.</p>
+        </div>
+      </section>
+
+      <section class="section" id="retention">
+        <header class="section-head"><h2 class="section-title">RETENTION AND DELETION</h2></header>
+        <div class="body-lines">
+          <p>Activity, settings, and saved rules remain in app- or extension-owned local storage until you clear them or remove the app, subject to iOS and iPadOS behavior. Keychain items remain subject to Apple's Keychain behavior and can be replaced or removed through Morph's provider controls.</p>
+          <p>Requests handled by an external provider may be retained under that provider's or endpoint operator's policies. Review those policies before configuring a cloud or shared service.</p>
+        </div>
+      </section>
+
+      <section class="section" id="links">
+        <header class="section-head"><h2 class="section-title">EXTERNAL LINKS</h2></header>
+        <div class="body-lines">
+          <p>Morph can open Kaizōsha marketing, legal, help, or contact pages in a browser. Visiting those pages is governed by the <a href="https://kaizosha.org/privacy">Kaizōsha website privacy policy</a> rather than this app notice.</p>
+        </div>
+      </section>
+
+      <section class="section" id="changes">
+        <header class="section-head"><h2 class="section-title">CHANGES AND CONTACT</h2></header>
+        <div class="body-lines">
+          <p>Morph is in development. If its data practices change before release, this notice and any required platform privacy disclosures will be updated.</p>
+          <p>Questions about Morph privacy can be sent through the Kaizōsha contact page: <a href="https://kaizosha.org/contact">https://kaizosha.org/contact</a>.</p>
+        </div>
+      </section>
+
+      <footer class="document-footer">
+        <a href="/">Morph</a>
+        <a href="/privacy" aria-current="page">App Privacy</a>
+        <a href="https://kaizosha.org/privacy">Website Privacy</a>
+        <a href="#top">Back to top</a>
+      </footer>
+    </main>
+  </body>
+</html>
