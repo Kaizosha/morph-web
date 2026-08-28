@@ -33,7 +33,11 @@ Production uses `main`. Feature branches can be used for review and preview depl
 
 ## Shared design
 
-`assets/styles/brand.css`, `assets/styles/markdown.css`, `assets/scripts/site-motion.js`, and `assets/scripts/document-navigation.js` use the Kaizōsha site grammar. `product-continuation.css` and `product-continuation.js` are product-neutral continuation layers that can be reused by sibling product sites.
+`assets/styles/brand.css`, `assets/styles/markdown.css`,
+`assets/scripts/brand-language-intro.js`, `assets/scripts/site-motion.js`, and
+`assets/scripts/document-navigation.js` use the Kaizōsha site grammar.
+`product-continuation.css` and `product-continuation.js` are product-neutral
+continuation layers that can be reused by sibling product sites.
 
 The visible Kaizōsha mark is constructed from HTML and CSS. `icon.svg` keeps
 its Japanese glyphs as real text for supporting browsers; `icon.png` is the
